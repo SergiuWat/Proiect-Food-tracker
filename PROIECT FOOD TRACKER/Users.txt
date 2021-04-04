@@ -1,0 +1,10 @@
+Nume: Dinu Vlad
+Varsta: 29
+Inaltime: 200.000000
+Greutate: 50.000000
+Scop: Scadere
+Metabolism: Normal
+Activitate Fizica: Moderata
+Greutate Dorita: 90
+Sex: Male
+*********************************************
