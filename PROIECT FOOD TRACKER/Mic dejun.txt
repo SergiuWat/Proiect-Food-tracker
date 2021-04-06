@@ -1,22 +1,22 @@
-Nume: Activia
-Calori: 567kcal
-Grasimi: 32g
-Acizi grasi saturati: 34g
-Glucide: 34g
-Zaharuri: 34g
-Fibre: 10g
-Proteine: 6g
-Sare: 45g
-Cantitate: 165g
+Nume: lays
+Calori: 2kcal
+Grasimi: 2g
+Acizi grasi saturati: 2g
+Glucide: 2g
+Zaharuri: 2g
+Fibre: 2g
+Proteine: 2g
+Sare: 2g
+Cantitate: 2g
 *********************************************
-Nume: Lays
-Calori: 565kcal
-Grasimi: 34g
-Acizi grasi saturati: 34g
-Glucide: 23g
-Zaharuri: 24g
-Fibre: 23g
-Proteine: 23g
-Sare: 23g
-Cantitate: 100g
+Nume: lays
+Calori: 2kcal
+Grasimi: 2g
+Acizi grasi saturati: 2g
+Glucide: 2g
+Zaharuri: 2g
+Fibre: 2g
+Proteine: 2g
+Sare: 2g
+Cantitate: 2g
 *********************************************

@@ -5,6 +5,7 @@
 #include <string>
 using namespace std;
 
+Aliment::Aliment(){}
 //Set function
 void Aliment::setNume(string nume) {
 	this->nume = nume;
@@ -38,6 +39,10 @@ void Aliment::setCantitate(double cantitate) {
 	this->cantitate = cantitate;
 }
 
+void Aliment::setMeal(int a) {
+	meal = a;
+}
+
 //Get function
 string Aliment::getNume() { return nume; }
 double Aliment::getValoare_energetica() { return valoare_energetica; }
@@ -64,11 +69,13 @@ Aliment::Aliment(const Aliment& source) {
 	this->proteine = source.proteine;
 	this->sare = source.sare;
 	this->cantitate = source.cantitate;
+	this->meal = source.meal;
 
 }
 
 //Create product
-void Aliment::createProduct(ofstream& file, int size) {
+void Aliment::createProduct(int size) {
+	ofstream file;
 	string line;
 	string input;
 	cout << "In ce categorie se afla produsul" << endl;
@@ -79,15 +86,15 @@ void Aliment::createProduct(ofstream& file, int size) {
 	//Alegerea mesei
 	if (stoi(input)== 1) {
 		file.open("Mic dejun.txt",fstream::app);
-		meal = 1;
+		this->meal = 1;
 	}
 	else if (stoi(input) == 2) {
 		file.open("Pranz.txt", fstream::app);
-		meal = 2;
+		meal = stoi(input);
 	}
 	else if (stoi(input) == 3) {
 		file.open("Cina.txt",fstream::app);
-		meal = 3;
+		meal = stoi(input);
 	}
 
 	//Se seteaza valorile

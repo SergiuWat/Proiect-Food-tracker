@@ -24,7 +24,7 @@ public:
 	
 
 	//Construcot
-	Aliment(){}
+	Aliment();
 
 	
 
@@ -39,6 +39,7 @@ public:
 	void setProteine(double);
 	void setSare(double);
 	void setCantitate(double);
+	void setMeal(int);
 
 	//Get function
 	string getNume();
@@ -60,7 +61,7 @@ public:
 	int calculCaloriProdus(int);
 
 	//Create product
-	void createProduct(ofstream&, int);
+	void createProduct(int);
 
 	//Set product stats
 	void setProductStats(Aliment* , ifstream& , int );

@@ -89,12 +89,81 @@ using namespace std;
 }
 
  void alimente_menu() {
+ Inceput:
 	 ifstream file;
 	 ofstream file2;
-	 int size = calculNumarAlimente(file);
-	 Aliment* aliment=new Aliment[size];
-	 Meal* meal{};
-	
+	 bool check=false;
+	 int nr_al=0;
+	 char c = ' ';
+	 string line;
+	 int k=0;
+	 
+	 Aliment* aliment{};
+	 Meal* meal=new Meal[calculNumarAlimente()];
+
+	 //Verific daca exista alimente in fisiere si daca exista setez meal-urile
+	 check = check_files();
+	 if (check) {
+		 for (int i = 0; i < 3; i++) {
+			 if (i == 0) {
+				 file.open("Mic dejun.txt");
+				 if (check_empty_file(file)) {
+					 file.close();
+					 continue;
+				 }
+				 else {
+					 aliment = new Aliment[calculMicDejunNr()];
+					 aliment->setProductStats(aliment, file, calculMicDejunNr());
+					 while (k != calculMicDejunNr()) {
+						 (meal + k)->setMic_dejun(*(aliment + k)); 
+						 k++;
+					 }
+					 k = 0;
+					 file.close();
+					 delete[] aliment;
+				 }	
+			 }
+			 if (i == 1) {
+				 file.open("Pranz.txt");
+				 if (check_empty_file(file)) {	
+					 file.close();
+					 continue;
+				 }
+				 else {
+					 aliment = new Aliment[calculPranzNr()];
+					 aliment->setProductStats(aliment, file, calculPranzNr());
+					 while (k!=calculPranzNr()) {						  					
+						 (meal + k)->setPranz(*(aliment + k));					 
+						 k++;
+					 }
+					 k = 0;
+					 file.close();
+					 delete[] aliment;
+				 }		 
+				 
+			 }
+			 if (i == 2) {
+				 file.open("Cina.txt");
+				 if (check_empty_file(file)) {
+					 file.close();
+					 continue;
+				 }
+				 else {
+					 aliment = new Aliment[calculCinaNr()];
+					 aliment->setProductStats(aliment, file, calculCinaNr());
+					 while (k != calculCinaNr()) {				 
+						 (meal + k)->setCina(*(aliment + k));
+						 k++;
+					 }
+					 k = 0;
+					 file.close();
+					 delete[] aliment;	
+				 } 		
+			 }
+		 }
+	 }
+
+
 	 cout << "Introduceti numarul corespunzator pentru avansare in meniu:" << endl;
 	 cout << "1. Vizualizare alimente" << endl;
 	 cout << "2. Introducere alimente" << endl;
@@ -102,43 +171,65 @@ using namespace std;
 	 int STATE_USER{};
 	 cin >> STATE_USER;
 	 int input = 0;
+	 system("cls");
 	 switch (STATE_USER)
 	 {
 	 case 1:
+		 // Verific daca fisierele au continut in ele
+		 check = check_files();
+		 if (!check) {
+			 cout << "Nu exista produse, va rugam sa le adaugati" << endl;
+			 goto Inceput;
+		 }
 		 cout << "Pentru ce masa vrei sa vezi alimentele"<<endl;
 		 cout << "1.Mic dejun" << endl;
 		 cout << "2.Pranz" << endl;
 		 cout << "3.Cina" << endl;
 		 cin >> input;
-		 for (int i = 0; i < calculNumarAlimente(file,input); i++) {
+		 system("cls");
+		 //Verific fisierele individual pt continut
+		 if (input == 1) {
+			 file.open("Mic dejun.txt");
+			 if (check_empty_file(file)) {
+				 cout << "Nu exista alimente in acest fisier" << endl;
+				 goto Inceput;
+			 }
+			 file.close();
+		 }
+		 if (input == 2) {
+			 file.open("Pranz.txt");
+			 if (check_empty_file(file)) {
+				 cout << "Nu exista alimente in acest fisier" << endl;
+				 goto Inceput;
+			 }
+			 file.close();
+
+		 }
+		 if (input == 3) {
+			 file.open("Cina.txt");
+			 if (check_empty_file(file)) {
+				 cout << "Nu exista alimente in acest fisier" << endl;
+				 goto Inceput;
+			 }
+			 file.close();
+		 }
+
+		 for (int i = 0; i < calculNumarAlimente(input); i++) {
 			 if (input == 1) {
-				 (meal + i)->getMic_dejun()->displayProduct();
+				 (meal + i)->getMic_dejun().displayProduct();
 			 }
 			 if (input == 2) {
-				 (meal + i)->getPranz()->displayProduct();
+				 (meal + i)->getPranz().displayProduct();
 			 }
 			 if (input == 3) {
-				 (meal + i)->getCina()->displayProduct();
+				 (meal + i)->getCina().displayProduct();
 			 }
 		 }
 		 break;
-	 case 2:	 
+	 case 2:
 		 cout << "Cate alimente vrei sa adaugi: ";
-		 cin >> input;
-		 aliment->createProduct(file2, input);
-		 aliment->setProductStats(aliment, file, input);
-		 if (aliment->getMeal() == 1) {
-			 meal->setMic_dejun(aliment);
-			 delete[] aliment;
-			 
-		 }if (aliment->getMeal() == 2) {
-			 meal->setPranz(aliment);
-			 delete[] aliment;
-		 }
-		 if (aliment->getMeal() == 3) {
-			 meal->setCina(aliment);
-			 delete[] aliment;
-		 }
+		 cin >> input;	
+		 aliment->createProduct(input);		 
 		 break;
 	 case 3:
 		 MENU_STATE = DATA;
@@ -149,16 +240,14 @@ using namespace std;
 	 }
  }
 
- void vizualizare_date() {
 
- }
   
 int main()
 {
-	
 	while (true) {
 		alimente_menu();
 	}
+	
 	//time_t rawtime;
 	//struct tm* timeinfo;
 

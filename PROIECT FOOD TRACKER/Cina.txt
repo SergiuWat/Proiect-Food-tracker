@@ -1,0 +1,44 @@
+Nume: gfdg
+Calori: 3kcal
+Grasimi: 3g
+Acizi grasi saturati: 3g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 3g
+Proteine: 3g
+Sare: 3g
+Cantitate: 3g
+*********************************************
+Nume: dgdfgdfvd
+Calori: 3kcal
+Grasimi: 3g
+Acizi grasi saturati: 3g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 3g
+Proteine: 3g
+Sare: 3g
+Cantitate: 3g
+*********************************************
+Nume: dfdf
+Calori: 3kcal
+Grasimi: 3g
+Acizi grasi saturati: 3g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 3g
+Proteine: 3g
+Sare: 3g
+Cantitate: 3g
+*********************************************
+Nume: df
+Calori: 3kcal
+Grasimi: 3g
+Acizi grasi saturati: 3g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 3g
+Proteine: 3g
+Sare: 3g
+Cantitate: 3g
+*********************************************

@@ -1,0 +1,22 @@
+Nume: Carne
+Calori: 435kcal
+Grasimi: 345g
+Acizi grasi saturati: 43g
+Glucide: 4g
+Zaharuri: 5g
+Fibre: 43g
+Proteine: 5g
+Sare: 4g
+Cantitate: 4g
+*********************************************
+Nume: Pui
+Calori: 432kcal
+Grasimi: 34g
+Acizi grasi saturati: 32g
+Glucide: 34g
+Zaharuri: 324g
+Fibre: 43g
+Proteine: 324g
+Sare: 34g
+Cantitate: 43g
+*********************************************
