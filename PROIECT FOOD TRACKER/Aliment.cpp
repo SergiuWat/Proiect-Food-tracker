@@ -39,9 +39,7 @@ void Aliment::setCantitate(double cantitate) {
 	this->cantitate = cantitate;
 }
 
-void Aliment::setMeal(int a) {
-	meal = a;
-}
+
 
 //Get function
 string Aliment::getNume() { return nume; }
@@ -54,7 +52,7 @@ double Aliment::getFibre() { return fibre; }
 double Aliment::getProteinte() { return proteine; }
 double Aliment::getSare() { return sare; }
 double Aliment::getCantitate() { return cantitate; }
-int Aliment::getMeal() { return meal; }
+
 
 
 //Copy constructor
@@ -69,7 +67,6 @@ Aliment::Aliment(const Aliment& source) {
 	this->proteine = source.proteine;
 	this->sare = source.sare;
 	this->cantitate = source.cantitate;
-	this->meal = source.meal;
 
 }
 
@@ -86,15 +83,15 @@ void Aliment::createProduct(int size) {
 	//Alegerea mesei
 	if (stoi(input)== 1) {
 		file.open("Mic dejun.txt",fstream::app);
-		this->meal = 1;
+		//meal = stoi(input);
 	}
 	else if (stoi(input) == 2) {
 		file.open("Pranz.txt", fstream::app);
-		meal = stoi(input);
+		//meal = stoi(input);
 	}
 	else if (stoi(input) == 3) {
 		file.open("Cina.txt",fstream::app);
-		meal = stoi(input);
+		//meal = stoi(input);
 	}
 
 	//Se seteaza valorile
@@ -182,33 +179,33 @@ void Aliment::createProduct(int size) {
 	system("cls");
 }
 
-//Calcul numar alimente
-//int Aliment::calculNumarAlimente(ifstream& file) {
-//	string line;
-//	char c=' ';
-//	int count = 0;
-//
-//	file.open("Valori nutritionale.txt");
-//	while (!file.eof()) {
-//		line.push_back(c);
-//		file.get(c);
-//		if (c == '\n') {
-//			line.clear();
-//			c = ' ';
-//		}
-//			
-//		
-//		if (line == " Nume:") {
-//			count++;
-//			line.clear();
-//		}
-//	}
-//	file.close();
-//	return count;
-//}
+
 
 //Calcul calori produs
 int Aliment::calculCaloriProdus(int cantitate) {
+	int calori;
+	double calcul_proteine;
+	double calcul_grasimi;
+	double calcult_glucide;
+	if (cantitate >= 100) {
+		calcul_proteine = proteine * (cantitate / 100);
+		calcul_grasimi = grasimi * (cantitate / 100);
+		calcult_glucide = glucide * (cantitate / 100);
+	}
+	else if (cantitate < 100) {
+		calcul_proteine = proteine / (cantitate / 100);
+		calcul_grasimi = grasimi / (cantitate / 100);
+		calcult_glucide = glucide / (cantitate / 100);
+	}
+
+	calcul_proteine = calcul_proteine * 4;
+	calcul_grasimi = calcul_grasimi * 9;
+	calcult_glucide = calcult_glucide * 4;
+	calori = calcul_proteine + calcul_grasimi + calcult_glucide;
+	return calori;
+}
+
+int Aliment::calculCaloriProdus() {
 	int calori;
 	double calcul_proteine;
 	double calcul_grasimi;
@@ -237,18 +234,6 @@ void Aliment::setProductStats(Aliment* aliemnt, ifstream& in_file, int size){
 	char c;
 	int i = 0;
 
-	//Se seteaza valorile dupa alegerea mesei
-	if (meal == 1){
-		in_file.open("Mic dejun.txt");
-	}
-	else if (meal == 2) {
-		in_file.open("Pranz.txt");
-	}
-	else if (meal == 3) {
-		in_file.open("Cina.txt");
-	}
-	
-	
 	if (!in_file) {
 		cout << "Error" << endl;
 	}
@@ -408,6 +393,502 @@ void Aliment::setProductStats(Aliment* aliemnt, ifstream& in_file, int size){
 		}
 	}
 	in_file.close();
+}
+
+//Setez alimentele din toate fisierele
+void Aliment::setProductStats(Aliment* aliemnt) {
+	ifstream in_file;
+	string line;
+	char c;
+	int i = 0;
+	int k = 0;
+
+	for (int j = 0; j < 3; j++) {
+		if (j == 0) {
+			in_file.open("Mic dejun.txt");
+			if (check_empty_file(in_file)) {
+				continue;
+			}
+			while (k != calculMicDejunNr()) {
+				in_file.get(c);
+				line.push_back(c);
+				//Set Name
+				if (line == "Nume: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						line.push_back(c);
+					}
+					(aliemnt + i)->setNume(line);
+					line.clear();
+				}
+				//SET Valoare Energetica
+				if (line == "Calori: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						line.push_back(c);
+					}
+					(aliemnt + i)->setValoare_energetica(stoi(line));
+					line.clear();
+				}
+				//SET Grasimi
+				if (line == "Grasimi: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setGrasimi(stoi(line));
+					line.clear();
+				}
+				//Set Din care acizi grasi saturat
+				if (line == "Acizi grasi saturati: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setAcizi_grasi_saturati(stoi(line));
+					line.clear();
+				}
+				//Set Glucide
+				if (line == "Glucide: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setGlucide(stoi(line));
+					line.clear();
+				}
+				//Set Zaharuri
+				if (line == "Zaharuri: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setZaharuri(stoi(line));
+					line.clear();
+				}
+				//Set Fibre
+				if (line == "Fibre: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setFibre(stoi(line));
+					line.clear();
+				}
+				//Set Proteine
+				if (line == "Proteine: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setProteine(stoi(line));
+					line.clear();
+				}
+				//Set Sare
+				if (line == "Sare: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setSare(stoi(line));
+					line.clear();
+				}
+				//Set Cantitate
+				if (line == "Cantitate: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setCantitate(stoi(line));
+					line.clear();
+					getline(in_file, line);
+					line.clear();
+					k++;
+					i++;
+				}
+			}
+			in_file.close();
+		}//end of first if
+		if (j == 1) {
+			in_file.open("Pranz.txt");
+			if (check_empty_file(in_file)) {
+				continue;
+			}
+			while (k != calculPranzNr()) {
+				in_file.get(c);
+				line.push_back(c);
+				//Set Name
+				if (line == "Nume: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						line.push_back(c);
+					}
+					(aliemnt + i)->setNume(line);
+					line.clear();
+				}
+				//SET Valoare Energetica
+				if (line == "Calori: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						line.push_back(c);
+					}
+					(aliemnt + i)->setValoare_energetica(stoi(line));
+					line.clear();
+				}
+				//SET Grasimi
+				if (line == "Grasimi: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setGrasimi(stoi(line));
+					line.clear();
+				}
+				//Set Din care acizi grasi saturat
+				if (line == "Acizi grasi saturati: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setAcizi_grasi_saturati(stoi(line));
+					line.clear();
+				}
+				//Set Glucide
+				if (line == "Glucide: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setGlucide(stoi(line));
+					line.clear();
+				}
+				//Set Zaharuri
+				if (line == "Zaharuri: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setZaharuri(stoi(line));
+					line.clear();
+				}
+				//Set Fibre
+				if (line == "Fibre: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setFibre(stoi(line));
+					line.clear();
+				}
+				//Set Proteine
+				if (line == "Proteine: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setProteine(stoi(line));
+					line.clear();
+				}
+				//Set Sare
+				if (line == "Sare: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setSare(stoi(line));
+					line.clear();
+				}
+				//Set Cantitate
+				if (line == "Cantitate: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setCantitate(stoi(line));
+					line.clear();
+					getline(in_file, line);
+					line.clear();
+					k++;
+					i++;
+				}
+			}
+			in_file.close();
+		}//end of second if
+		if (j == 2) {
+			in_file.open("Cina.txt");
+			if (check_empty_file(in_file)) {
+				continue;
+			}
+			while (k != calculCinaNr()) {
+				in_file.get(c);
+				line.push_back(c);
+				//Set Name
+				if (line == "Nume: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						line.push_back(c);
+					}
+					(aliemnt + i)->setNume(line);
+					line.clear();
+				}
+				//SET Valoare Energetica
+				if (line == "Calori: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						line.push_back(c);
+					}
+					(aliemnt + i)->setValoare_energetica(stoi(line));
+					line.clear();
+				}
+				//SET Grasimi
+				if (line == "Grasimi: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setGrasimi(stoi(line));
+					line.clear();
+				}
+				//Set Din care acizi grasi saturat
+				if (line == "Acizi grasi saturati: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setAcizi_grasi_saturati(stoi(line));
+					line.clear();
+				}
+				//Set Glucide
+				if (line == "Glucide: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setGlucide(stoi(line));
+					line.clear();
+				}
+				//Set Zaharuri
+				if (line == "Zaharuri: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setZaharuri(stoi(line));
+					line.clear();
+				}
+				//Set Fibre
+				if (line == "Fibre: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setFibre(stoi(line));
+					line.clear();
+				}
+				//Set Proteine
+				if (line == "Proteine: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setProteine(stoi(line));
+					line.clear();
+				}
+				//Set Sare
+				if (line == "Sare: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setSare(stoi(line));
+					line.clear();
+				}
+				//Set Cantitate
+				if (line == "Cantitate: ") {
+					line.clear();
+					while (c != '\n') {
+						in_file.get(c);
+						if (c == '\n') {
+							break;
+						}
+						if (c != 'g') {
+							line.push_back(c);
+						}
+					}
+					(aliemnt + i)->setCantitate(stoi(line));
+					line.clear();
+					getline(in_file, line);
+					line.clear();
+					k++;
+					i++;
+				}
+			}
+			in_file.close();
+		}//end of the third if
+	}
+	
 }
 
 //Diplay product

@@ -13,6 +13,7 @@ public:
 	//Set function
 	void setConsum_cal_real(Aliment*, int,int);
 	void setConsum_cal_expected(User users);
+	void setConsum_Cal(int);
 	void setProteine(double);
 	void setCarbohidrati(double);
 	void setGrasimi(double);
@@ -22,5 +23,7 @@ public:
 	double getProteine();
 	double getCarbohidrati();
 	double getGrasimi();
+
+	friend Progres operator%(Progres, int);
 };
 

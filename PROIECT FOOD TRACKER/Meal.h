@@ -16,7 +16,7 @@ private:
 	Progres real;
 	string data;
 
-	vector<Aliment> m;
+
 public:
 	
 	//Set functionS
@@ -33,6 +33,8 @@ public:
 	void setData(string);
 	void setExpected(Progres);
 	void setReal(Progres);
+	void setExpected(int);
+	void setReal(int);
 
 	//Get function
 	Aliment getMic_dejun();
@@ -42,9 +44,9 @@ public:
 	string getData();
 	Progres getExpected();
 	Progres getReal();
-	vector<Aliment>getMeals() { return m; }
+	//vector<Aliment>getMeals() { return m; }
 
-	bool checkData(ifstream&);
+	bool checkData();
 
 	void setMealsStats(Meal*,Aliment*,int);
 	void setMealsStats(Meal* meals, Aliment* aliment);

@@ -15,7 +15,7 @@ private:
 	double proteine;
 	double sare;
 	double cantitate;
-	int meal;
+
 	
 public:
 
@@ -39,7 +39,6 @@ public:
 	void setProteine(double);
 	void setSare(double);
 	void setCantitate(double);
-	void setMeal(int);
 
 	//Get function
 	string getNume();
@@ -52,19 +51,17 @@ public:
 	double getProteinte();
 	double getSare();
 	double getCantitate();
-	int getMeal();
-
-	//Calcul numar alimente
-	int calculNumarAlimente(ifstream&);
 
 	//Calcul calori
 	int calculCaloriProdus(int);
+	int calculCaloriProdus();
 
 	//Create product
 	void createProduct(int);
 
 	//Set product stats
 	void setProductStats(Aliment* , ifstream& , int );
+	void setProductStats(Aliment*);
 
 	//Dispaly product
 	void displayProduct();

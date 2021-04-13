@@ -18,6 +18,9 @@ void Progres::setConsum_cal_real(Aliment* aliment,int cantitate,int size) {
 void Progres::setConsum_cal_expected(User user) {
 	consum_cal = user.calculateBMR();
 }
+void Progres::setConsum_Cal(int cal) {
+	consum_cal = cal;
+}
 void Progres::setProteine(double proteine) {
 	this->proteine = proteine;
 }
@@ -33,3 +36,9 @@ int     Progres::getConsum_cal() { return consum_cal; }
 double  Progres::getProteine() { return proteine; }
 double  Progres::getCarbohidrati() { return carbohidrati; }
 double  Progres::getGrasimi() { return grasimi; }
+
+ Progres operator%(Progres p, int a) {
+
+	 p.setConsum_Cal(p.getConsum_cal() * a/100);
+	 return p;
+ }

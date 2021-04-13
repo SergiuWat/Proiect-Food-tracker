@@ -1,6 +1,10 @@
+#pragma warning (disable: 4996)
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <time.h>
+#include <vector>
+#include "Meal.h"
 #include "Aliment.h"
 #include "USER.h"
 
@@ -11,15 +15,20 @@ using namespace std;
 inline void clearStrings(string*, string*, string*);
 inline void clearStrings(string*, string*);
 inline bool check_empty_file(ifstream&);
-inline void adaugareProdusLista(Aliment*, vector<Aliment>&, ifstream& , ofstream& );
-inline void printMenu();
+//inline void adaugareProdusLista(Aliment*, vector<Aliment>&);
 //inline int calculNumarAlimente(ifstream& );
+inline void afisare_alimente_recomandateMD(Meal , vector<Meal>& );
+inline void afisare_alimente_recomandatePR(Meal , vector<Meal>& );
+inline void afisare_alimente_recomandateCN(Meal , vector<Meal>& );
+inline void setMeals(Meal*, Aliment* );
 inline int calculNumarAlimente(int);
 inline int calculNumarAlimente();
 inline bool check_files();
 inline int calculMicDejunNr();
 inline int calculPranzNr();
 inline int calculCinaNr();
+inline void Date();
+inline string IDate();
 
 //Function definition
 inline void clearStrings(string* string_1, string* string_2, string* string_3) {
@@ -40,34 +49,21 @@ inline bool check_empty_file(ifstream& pFile)
 }
 
 //Adaugare produs in lista
-inline void adaugareProdusLista(Aliment* aliment, vector<Aliment>& lista_produse, ifstream& file, ofstream& file2) {
-	cout << "Cate produse doriti sa adaugati: ";
-	int size;
-	cin >> size;
-	aliment = new Aliment[lista_produse.size() + size];
-	aliment->createProduct(size);
-	aliment->setProductStats(aliment, file, size);
-	for (int i = lista_produse.size(); i < lista_produse.size() + size; i++) {
-		lista_produse.push_back(*(aliment + i));
-	}
-}
+//inline void adaugareProdusLista(Aliment* aliment, vector<Aliment>& lista_produse) {
+//	cout << "Cate produse doriti sa adaugati: ";
+//	int size;
+//	cin >> size;
+//	aliment = new Aliment[lista_produse.size() + size];
+//	aliment->createProduct(size);
+//	aliment->setProductStats(aliment, file, size);
+//	for (int i = lista_produse.size(); i < lista_produse.size() + size; i++) {
+//		lista_produse.push_back(*(aliment + i));
+//	}
+//}
 
-//Print menu
-inline void printMenu() {
-	cout << "************************MENU***************************" << endl;
-	cout << "1.Adaugati un produs/produse" << endl;
-	cout << "2.Adaugati un nou user" << endl;
-	cout << "3.Calculati BMR-ul" << endl;
-	cout << "4.Calculati BMI-ul" << endl;
-	cout << "5.Verificati progresul dumneavoastra" << endl;
-	cout << "6.Cautati un produs" << endl;
-	cout << "7.Display user stats" << endl;
-	cout << "9.Inchideti aplicatia" << endl;
 
-}
+
 //Calcul numar alimente
-
-
 inline int calculNumarAlimente(int aleg) {
 	ifstream file;
 	
@@ -184,7 +180,7 @@ inline int calculNumarAlimente() {
 	return count;
 }
 
-//Calculez numarul de alimente din fisier individual
+//Calculez numarul de alimente din fisiere individual
 inline int calculMicDejunNr() {
 	ifstream file;
 	string line;
@@ -283,4 +279,257 @@ inline bool check_files() {
 		}
 	}
 	return false;
+}
+
+//Pun data din calculator in fisier
+inline void Date() {
+	ofstream file;
+	file.open("Data.txt");
+	time_t rawtime;
+	struct tm* timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	string time = asctime(timeinfo);
+	string day;
+	for (int i = 0; i < 3; i++) {
+		day.push_back(time.at(i));
+	}
+	file << day;
+	file << '\n';
+	file.close();
+
+}
+
+inline string IDate() {
+	time_t rawtime;
+	struct tm* timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	string time = asctime(timeinfo);
+	string day;
+	for (int i = 0; i < 3; i++) {
+		day.push_back(time.at(i));
+	}
+	return day;
+}
+
+
+//Functi pentru afisarea alimentelor recomandate per/meal
+
+inline void afisare_alimente_recomandateMD(Meal meal, vector<Meal>& lista_meals) {
+	vector<Meal> aux;
+	int k = 0;
+	int nr_cal = meal.getExpected().getConsum_cal();
+	while (!lista_meals.empty())
+	{
+		int i = 0;
+		if (lista_meals.size() == 1) {
+			i = 0;
+			if (lista_meals.at(i).getMic_dejun().calculCaloriProdus() > nr_cal) {
+				break;
+			}
+		}
+		else
+		{
+			srand((unsigned)time(0));
+			i = (rand() % (lista_meals.size() - 1));
+
+		}
+
+		if (lista_meals.at(i).getMic_dejun().calculCaloriProdus() <= nr_cal) {
+			int temp = lista_meals.at(i).getMic_dejun().calculCaloriProdus();
+			nr_cal = nr_cal - temp;
+			aux.push_back(lista_meals.at(i));
+			lista_meals.erase(lista_meals.begin() + i);
+
+			for (int j = 0; j < lista_meals.size(); j++) {
+				if (lista_meals.at(j).getMic_dejun().calculCaloriProdus() > nr_cal) {
+					lista_meals.erase(lista_meals.begin() + j);
+					k++;
+				}
+				else {
+					temp = lista_meals.at(j).getMic_dejun().calculCaloriProdus();
+					nr_cal = nr_cal - temp;
+					aux.push_back(lista_meals.at(j));
+					lista_meals.erase(lista_meals.begin() + j);
+				}
+			}
+
+		}
+		else
+		{
+			lista_meals.erase(lista_meals.begin() + i);
+		}
+
+	}
+	for (int i = 0; i < aux.size(); i++) {
+		aux.at(i).getMic_dejun().displayProduct();
+	}
+}
+
+inline void afisare_alimente_recomandatePR(Meal meal, vector<Meal>& lista_meals) {
+	vector<Meal> aux;
+	int k = 0;
+	int nr_cal = meal.getExpected().getConsum_cal();
+	while (!lista_meals.empty())
+	{
+		int i = 0;
+		if (lista_meals.size() == 1) {
+			i = 0;
+			if (lista_meals.at(i).getPranz().calculCaloriProdus() > nr_cal) {
+				break;
+			}
+		}
+		else
+		{
+			srand((unsigned)time(0));
+			i = (rand() % (lista_meals.size() - 1));
+
+		}
+
+		if (lista_meals.at(i).getPranz().calculCaloriProdus() <= nr_cal) {
+			int temp = lista_meals.at(i).getPranz().calculCaloriProdus();
+			nr_cal = nr_cal - temp;
+			aux.push_back(lista_meals.at(i));
+			lista_meals.erase(lista_meals.begin() + i);
+
+			for (int j = 0; j < lista_meals.size(); j++) {
+				if (lista_meals.at(j).getPranz().calculCaloriProdus() > nr_cal) {
+					lista_meals.erase(lista_meals.begin() + j);
+					k++;
+				}
+				else {
+					temp = lista_meals.at(j).getPranz().calculCaloriProdus();
+					nr_cal = nr_cal - temp;
+					aux.push_back(lista_meals.at(j));
+					lista_meals.erase(lista_meals.begin() + j);
+				}
+			}
+
+		}
+		else
+		{
+			lista_meals.erase(lista_meals.begin() + i);
+		}
+
+	}
+	for (int i = 0; i < aux.size(); i++) {
+		aux.at(i).getPranz().displayProduct();
+	}
+}
+
+inline void afisare_alimente_recomandateCN(Meal meal, vector<Meal>& lista_meals) {
+	vector<Meal> aux;
+	int k = 0;
+	int nr_cal = meal.getExpected().getConsum_cal();
+	while (!lista_meals.empty())
+	{
+		int i = 0;
+		if (lista_meals.size() == 1) {
+			i = 0;
+			if (lista_meals.at(i).getCina().calculCaloriProdus() > nr_cal) {
+				break;
+			}
+		}
+		else
+		{
+			srand((unsigned)time(0));
+			i = (rand() % (lista_meals.size() - 1));
+
+		}
+
+		if (lista_meals.at(i).getCina().calculCaloriProdus() <= nr_cal) {
+			int temp = lista_meals.at(i).getCina().calculCaloriProdus();
+			nr_cal = nr_cal - temp;
+			aux.push_back(lista_meals.at(i));
+			lista_meals.erase(lista_meals.begin() + i);
+
+			for (int j = 0; j < lista_meals.size(); j++) {
+				if (lista_meals.at(j).getCina().calculCaloriProdus() > nr_cal) {
+					lista_meals.erase(lista_meals.begin() + j);
+					k++;
+				}
+				else {
+					temp = lista_meals.at(j).getCina().calculCaloriProdus();
+					nr_cal = nr_cal - temp;
+					aux.push_back(lista_meals.at(j));
+					lista_meals.erase(lista_meals.begin() + j);
+				}
+			}
+
+		}
+		else
+		{
+			lista_meals.erase(lista_meals.begin() + i);
+		}
+
+	}
+	for (int i = 0; i < aux.size(); i++) {
+		aux.at(i).getCina().displayProduct();
+	}
+}
+
+//Seteaza meal-urile
+void setMeals(Meal* meal, Aliment* aliment) {
+	ifstream file;
+	int k = 0;
+	for (int i = 0; i < 3; i++) {
+		if (i == 0) {
+			file.open("Mic dejun.txt");
+			if (check_empty_file(file)) {
+				file.close();
+				continue;
+			}
+			else {
+				aliment = new Aliment[calculMicDejunNr()];
+				aliment->setProductStats(aliment, file, calculMicDejunNr());
+				while (k != calculMicDejunNr()) {
+					(meal + k)->setMic_dejun(*(aliment + k));
+					k++;
+				}
+				k = 0;
+				file.close();
+				delete[] aliment;
+			}
+		}
+		if (i == 1) {
+			file.open("Pranz.txt");
+			if (check_empty_file(file)) {
+				file.close();
+				continue;
+			}
+			else {
+				aliment = new Aliment[calculPranzNr()];
+				aliment->setProductStats(aliment, file, calculPranzNr());
+				while (k != calculPranzNr()) {
+					(meal + k)->setPranz(*(aliment + k));
+					k++;
+				}
+				k = 0;
+				file.close();
+				delete[] aliment;
+			}
+
+		}
+		if (i == 2) {
+			file.open("Cina.txt");
+			if (check_empty_file(file)) {
+				file.close();
+				continue;
+			}
+			else {
+				aliment = new Aliment[calculCinaNr()];
+				aliment->setProductStats(aliment, file, calculCinaNr());
+				while (k != calculCinaNr()) {
+					(meal + k)->setCina(*(aliment + k));
+					k++;
+				}
+				k = 0;
+				file.close();
+				delete[] aliment;
+			}
+		}
+	}
 }

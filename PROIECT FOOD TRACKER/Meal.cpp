@@ -18,13 +18,17 @@ void  Meal::setCina(Aliment cina) {
 void  Meal::setGustari(Aliment gustari) {
 	this->gustari = gustari;
 }
-
-
 void  Meal::setExpected(Progres expected) {
 	this->expected = expected;
 }
 void  Meal::setReal(Progres real) {
 	this->real = real;
+}
+void Meal::setExpected(int exp) {
+	expected.setConsum_Cal(exp);
+}
+void Meal::setReal(int rl) {
+	real.setConsum_Cal(rl);
 }
 void Meal::setData(string data) {
 	this->data = data;
@@ -40,7 +44,8 @@ Progres Meal::getExpected() { return expected; }
 Progres Meal::getReal() { return real; }
 
 //Check Data
-bool Meal::checkData(ifstream& file) {
+bool Meal::checkData() {
+	ifstream file;
 	file.open("Data.txt");
 	string line;
 	char c;
