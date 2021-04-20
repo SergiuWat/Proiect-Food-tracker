@@ -53,7 +53,7 @@ public:
 	double getCantitate();
 
 	//Calcul calori
-	int calculCaloriProdus(int);
+	int calculCaloriProdus(double);
 	int calculCaloriProdus();
 
 	//Create product

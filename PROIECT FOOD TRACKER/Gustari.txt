@@ -1,0 +1,66 @@
+Nume: Activia
+Calori: 334kcal
+Grasimi: 4g
+Acizi grasi saturati: 34g
+Glucide: 3g
+Zaharuri: 4g
+Fibre: 43g
+Proteine: 4g
+Sare: 543g
+Cantitate: 453g
+*********************************************
+Nume: ecler
+Calori: 343kcal
+Grasimi: 3g
+Acizi grasi saturati: 34g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 34g
+Proteine: 34g
+Sare: 34g
+Cantitate: 135g
+*********************************************
+Nume: ecler_1
+Calori: 343kcal
+Grasimi: 3g
+Acizi grasi saturati: 4g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 4g
+Proteine: 4g
+Sare: 34g
+Cantitate: 135g
+*********************************************
+Nume: Activia
+Calori: 334kcal
+Grasimi: 4g
+Acizi grasi saturati: 34g
+Glucide: 3g
+Zaharuri: 4g
+Fibre: 43g
+Proteine: 4g
+Sare: 543g
+Cantitate: 453g
+*********************************************
+Nume: ecler
+Calori: 343kcal
+Grasimi: 3g
+Acizi grasi saturati: 34g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 34g
+Proteine: 34g
+Sare: 34g
+Cantitate: 135g
+*********************************************
+Nume: ecler_1
+Calori: 343kcal
+Grasimi: 3g
+Acizi grasi saturati: 4g
+Glucide: 3g
+Zaharuri: 3g
+Fibre: 4g
+Proteine: 4g
+Sare: 34g
+Cantitate: 135g
+*********************************************

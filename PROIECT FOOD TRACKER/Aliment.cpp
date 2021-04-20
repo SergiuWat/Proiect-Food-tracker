@@ -76,22 +76,25 @@ void Aliment::createProduct(int size) {
 	string line;
 	string input;
 	cout << "In ce categorie se afla produsul" << endl;
-	cout << "1.Mic dejun\n2.Pranz\n3.Cina" << endl;
+	cout << "1.Mic dejun\n2.Pranz\n3.Cina\n4.Gustari" << endl;
 	cin >> input;
 	system("cls");
 
 	//Alegerea mesei
 	if (stoi(input)== 1) {
 		file.open("Mic dejun.txt",fstream::app);
-		//meal = stoi(input);
+		
 	}
 	else if (stoi(input) == 2) {
 		file.open("Pranz.txt", fstream::app);
-		//meal = stoi(input);
+		
 	}
 	else if (stoi(input) == 3) {
 		file.open("Cina.txt",fstream::app);
-		//meal = stoi(input);
+		
+	}
+	else if (stoi(input) == 4) {
+		file.open("Gustari.txt", fstream::app);
 	}
 
 	//Se seteaza valorile
@@ -182,26 +185,23 @@ void Aliment::createProduct(int size) {
 
 
 //Calcul calori produs
-int Aliment::calculCaloriProdus(int cantitate) {
+int Aliment::calculCaloriProdus(double cantitate) {
 	int calori;
 	double calcul_proteine;
 	double calcul_grasimi;
 	double calcult_glucide;
-	if (cantitate >= 100) {
-		calcul_proteine = proteine * (cantitate / 100);
-		calcul_grasimi = grasimi * (cantitate / 100);
-		calcult_glucide = glucide * (cantitate / 100);
-	}
-	else if (cantitate < 100) {
-		calcul_proteine = proteine / (cantitate / 100);
-		calcul_grasimi = grasimi / (cantitate / 100);
-		calcult_glucide = glucide / (cantitate / 100);
-	}
+	
+	calcul_proteine = proteine * (cantitate / 100);
+	calcul_grasimi = grasimi * (cantitate / 100);
+	calcult_glucide = glucide * (cantitate / 100);
+	
 
 	calcul_proteine = calcul_proteine * 4;
 	calcul_grasimi = calcul_grasimi * 9;
 	calcult_glucide = calcult_glucide * 4;
 	calori = calcul_proteine + calcul_grasimi + calcult_glucide;
+
+
 	return calori;
 }
 
@@ -210,17 +210,11 @@ int Aliment::calculCaloriProdus() {
 	double calcul_proteine;
 	double calcul_grasimi;
 	double calcult_glucide;
-	if (cantitate >= 100) {
-		calcul_proteine = proteine * (cantitate / 100);
-		calcul_grasimi = grasimi * (cantitate / 100);
-		calcult_glucide = glucide * (cantitate / 100);
-	}
-	else if (cantitate < 100) {
-		calcul_proteine = proteine / (cantitate / 100);
-		calcul_grasimi = grasimi / (cantitate / 100);
-		calcult_glucide = glucide / (cantitate / 100);
-	}
-
+	
+	calcul_proteine = proteine * (cantitate / 100);
+	calcul_grasimi = grasimi * (cantitate / 100);
+	calcult_glucide = glucide * (cantitate / 100);
+	
 	calcul_proteine = calcul_proteine * 4;
 	calcul_grasimi = calcul_grasimi * 9;
 	calcult_glucide = calcult_glucide * 4;
@@ -242,7 +236,7 @@ void Aliment::setProductStats(Aliment* aliemnt, ifstream& in_file, int size){
 			in_file.get(c);
 			line.push_back(c);
 			//Set Name
-			if (line == "Nume: ") {
+			if (line == "Nume: ")  {
 				line.clear();
 				while (c != '\n') {
 					in_file.get(c);

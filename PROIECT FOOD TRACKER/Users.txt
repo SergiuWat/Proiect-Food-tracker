@@ -1,10 +1,20 @@
-Nume: Dinu Vlad
-Varsta: 29
-Inaltime: 200.000000
-Greutate: 50.000000
-Scop: Scadere
-Metabolism: Normal
-Activitate Fizica: Moderata
+Nume: Dragomir Sergiu-Andrei
+Varsta: 20
+Inaltime: 179.000000
+Greutate: 67.000000
+Scop: Mentinere
+Metabolism: Rapid
+Activitate Fizica: Usoara
+Greutate Dorita: 80
+Sex: Male
+*********************************************
+Nume: Dragomir Sergiu-Andrei
+Varsta: 20
+Inaltime: 179
+Greutate: 68
+Scop: Mentinere
+Metabolism: Rapid
+Activitate Fizica: Usoara
 Greutate Dorita: 90
 Sex: Male
 *********************************************

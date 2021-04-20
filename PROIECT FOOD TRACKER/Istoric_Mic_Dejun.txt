@@ -1,0 +1,55 @@
+20:4:2021
+Nume: ecler_1
+Cantitate: 135
+Portie: 0
+**************
+Nume: Activia_1
+Cantitate: 50
+Portie: 0
+**************
+Nume: ecler_1
+Cantitate: 135
+Portie: 0
+**************
+Nume: Activia_1
+Cantitate: 50
+Portie: 0
+**************
+--------------------------
+20:4:2021
+Nume: ecler_1
+Cantitate: 135
+Portie: 0
+**************
+Nume: Activia_1
+Cantitate: 50
+Portie: 0
+**************
+Nume: ecler_1
+Cantitate: 135
+Portie: 0
+**************
+Nume: Activia_1
+Cantitate: 50
+Portie: 0
+**************
+--------------------------
+20:4:2021
+Nume: ecler_1
+Cantitate: 135
+Portie: 0
+**************
+Nume: Activia_1
+Cantitate: 50
+Portie: 0
+**************
+Nume: ecler_1
+Cantitate: 135
+Portie: 0
+**************
+Nume: Activia_1
+Cantitate: 50
+Portie: 0
+**************
+--------------------------
+20:4:2021
