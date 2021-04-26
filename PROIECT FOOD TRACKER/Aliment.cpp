@@ -94,7 +94,7 @@ void Aliment::createProduct(int size) {
 		
 	}
 	else if (stoi(input) == 4) {
-		file.open("Gustari.txt", fstream::app);
+		file.open("Gustari.txt",fstream::app);
 	}
 
 	//Se seteaza valorile

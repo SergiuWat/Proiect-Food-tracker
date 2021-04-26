@@ -1,6 +1,7 @@
 #include "Produs.h"
 #include <fstream>
 #include <string>
+#include "Meal.h"
 using namespace std;
 
 //Set function
@@ -76,11 +77,13 @@ void Produs::setProduse(ifstream& file,Produs* produs, int size) {
 }
 
 //adaug produsul in fisier
-void Produs::adaugaProdusFiser(ofstream& file) {
+void Produs::adaugaProdusFiser(ofstream& file,Meal produs) {
 	
+
 	file <<"Nume: "<< aliment.getNume() << endl;
 	file << "Cantitate: " << cantitate << endl;
 	file << "Portie: " << portie << endl;
+	file << "Progres: " << produs.getReal().getConsum_cal() << endl;
 	file << "**************" << endl;
 	file.close();
 }

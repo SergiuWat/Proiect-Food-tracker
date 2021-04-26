@@ -1,199 +1,22 @@
-Nume: Activia_1
-Calori: 334kcal
-Grasimi: 1g
-Acizi grasi saturati: 14g
-Glucide: 3g
-Zaharuri: 4g
-Fibre: 43g
-Proteine: 4g
-Sare: 543g
-Cantitate: 153g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: Activia
-Calori: 334kcal
-Grasimi: 4g
+Nume: Lays
+Calori: 342kcal
+Grasimi: 32g
 Acizi grasi saturati: 34g
-Glucide: 33g
-Zaharuri: 4g
-Fibre: 43g
-Proteine: 4g
-Sare: 543g
-Cantitate: 453g
+Glucide: 32g
+Zaharuri: 34g
+Fibre: 23g
+Proteine: 43g
+Sare: 23g
+Cantitate: 434g
 *********************************************
-Nume: ecler
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 34g
-Glucide: 3g
-Zaharuri: 324g
-Fibre: 34g
-Proteine: 34g
-Sare: 34g
-Cantitate: 155g
+Nume: Snickers
+Calori: 34kcal
+Grasimi: 324g
+Acizi grasi saturati: 432g
+Glucide: 324g
+Zaharuri: 32g
+Fibre: 32g
+Proteine: 3g
+Sare: 4g
+Cantitate: 5g
 *********************************************
-Nume: Activia
-Calori: 334kcal
-Grasimi: 4g
-Acizi grasi saturati: 34g
-Glucide: 3g
-Zaharuri: 4g
-Fibre: 43g
-Proteine: 4g
-Sare: 543g
-Cantitate: 453g
-*********************************************
-Nume: ecler
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 34g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 34g
-Proteine: 34g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-Nume: ecler_1
-Calori: 343kcal
-Grasimi: 3g
-Acizi grasi saturati: 4g
-Glucide: 3g
-Zaharuri: 3g
-Fibre: 4g
-Proteine: 4g
-Sare: 34g
-Cantitate: 135g
-*********************************************
-

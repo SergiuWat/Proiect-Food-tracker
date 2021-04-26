@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include "Meal.h"
 #include "Aliment.h"
 #pragma once
 class Produs
@@ -23,7 +24,7 @@ public:
 	double getCantitate();
 	int getPortie();
 
-	void adaugaProdusFiser(ofstream&);
+	void adaugaProdusFiser(ofstream&, Meal);
 
 	
 

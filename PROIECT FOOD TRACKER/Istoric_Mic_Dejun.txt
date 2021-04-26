@@ -1,55 +1,8 @@
-20:4:2021
-Nume: ecler_1
-Cantitate: 135
+21:4:2021
+Nume: Lays
+Cantitate: 70
 Portie: 0
-**************
-Nume: Activia_1
-Cantitate: 50
-Portie: 0
-**************
-Nume: ecler_1
-Cantitate: 135
-Portie: 0
-**************
-Nume: Activia_1
-Cantitate: 50
-Portie: 0
+Progres: 408
 **************
 --------------------------
-20:4:2021
-Nume: ecler_1
-Cantitate: 135
-Portie: 0
-**************
-Nume: Activia_1
-Cantitate: 50
-Portie: 0
-**************
-Nume: ecler_1
-Cantitate: 135
-Portie: 0
-**************
-Nume: Activia_1
-Cantitate: 50
-Portie: 0
-**************
---------------------------
-20:4:2021
-Nume: ecler_1
-Cantitate: 135
-Portie: 0
-**************
-Nume: Activia_1
-Cantitate: 50
-Portie: 0
-**************
-Nume: ecler_1
-Cantitate: 135
-Portie: 0
-**************
-Nume: Activia_1
-Cantitate: 50
-Portie: 0
-**************
---------------------------
-20:4:2021
+21:4:2021
