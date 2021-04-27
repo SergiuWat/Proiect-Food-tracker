@@ -1,0 +1,44 @@
+Nume: Ciorba de burta
+Calori: 345kcal
+Grasimi: 23g
+Acizi grasi saturati: 21g
+Glucide: 23g
+Zaharuri: 4g
+Fibre: 12g
+Proteine: 12g
+Sare: 23g
+Cantitate: 50g
+*********************************************
+Nume: Supa de galuste
+Calori: 234kcal
+Grasimi: 21g
+Acizi grasi saturati: 23g
+Glucide: 20g
+Zaharuri: 21g
+Fibre: 23g
+Proteine: 24g
+Sare: 24g
+Cantitate: 156g
+*********************************************
+Nume: Pilaf
+Calori: 234kcal
+Grasimi: 15g
+Acizi grasi saturati: 23g
+Glucide: 21g
+Zaharuri: 23g
+Fibre: 234g
+Proteine: 12g
+Sare: 45g
+Cantitate: 100g
+*********************************************
+Nume: Piure
+Calori: 23kcal
+Grasimi: 12g
+Acizi grasi saturati: 23g
+Glucide: 21g
+Zaharuri: 34g
+Fibre: 21g
+Proteine: 23g
+Sare: 21g
+Cantitate: 53g
+*********************************************

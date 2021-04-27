@@ -1,6 +1,39 @@
-21:4:2021
-21:4:2021
-21:4:2021
-21:4:2021
-21:4:2021
-21:4:2021
+28:4:2021
+Nume: Carne de pui
+Cantitate: 70
+Portie: 1
+**************
+Progres total expected: 2406
+Progres total real: 2200
+Progres expected: 962
+Progres real: 756
+--------------------------
+29:4:2021
+Nume: Carne de pui
+Cantitate: 70
+Portie: 1
+**************
+Nume: Carne de pui
+Cantitate: 70
+Portie: 1
+**************
+Nume: Carne de pui
+Cantitate: 70
+Portie: 1
+**************
+Progres total expected: 2406
+Progres total real: 2200
+Progres expected: 962
+Progres real: 756
+--------------------------
+30:4:2021
+28:4:2021
+Nume: Carne de pui
+Cantitate: 70
+Portie: 1
+**************
+Progres total expected: 2406
+Progres total real: 2200
+Progres expected: 962
+Progres real: 756
+--------------------------

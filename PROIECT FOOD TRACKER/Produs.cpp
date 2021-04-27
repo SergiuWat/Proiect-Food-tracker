@@ -77,13 +77,12 @@ void Produs::setProduse(ifstream& file,Produs* produs, int size) {
 }
 
 //adaug produsul in fisier
-void Produs::adaugaProdusFiser(ofstream& file,Meal produs) {
+void Produs::adaugaProdusFiser(ofstream& file) {
 	
 
 	file <<"Nume: "<< aliment.getNume() << endl;
 	file << "Cantitate: " << cantitate << endl;
-	file << "Portie: " << portie << endl;
-	file << "Progres: " << produs.getReal().getConsum_cal() << endl;
+	file << "Portie: " << portie << endl;	
 	file << "**************" << endl;
 	file.close();
 }

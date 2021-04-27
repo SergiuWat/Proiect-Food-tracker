@@ -24,7 +24,7 @@ public:
 	double getCantitate();
 	int getPortie();
 
-	void adaugaProdusFiser(ofstream&, Meal);
+	void adaugaProdusFiser(ofstream&);
 
 	
 

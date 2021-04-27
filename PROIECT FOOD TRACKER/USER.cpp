@@ -829,7 +829,7 @@ int User::calculateBMR() {
 		 
 	 }else if (sex == 2) {
 		 bmr = 447.593 + (9.247 * greutate) + (3.098 * inaltime) - (4.330 * varsta);
-		 return bmr;
+		
 	 }
 	 if (tip_activitate_fizica == 1) {
 		 return bmr * 1.2;
@@ -849,11 +849,11 @@ int User::calculateBMR() {
  {
 	 if (sex == 1) {
 		 bmr = 88.362 + (13.397 * greutate_dorita) + (4.799 * inaltime) - (5.667 * varsta);
-		 return round(bmr);
+		
 	 }
 	 else if (sex == 2) {
 		 bmr = 447.593 + (9.247 * greutate_dorita) + (3.098 * inaltime) - (4.330 * varsta);
-		 return round(bmr);
+		 
 	 }
 	 if (tip_activitate_fizica == 1) {
 		 return bmr * 1.2;

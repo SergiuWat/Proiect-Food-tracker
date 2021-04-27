@@ -928,22 +928,21 @@ inline void tranferFiles(ifstream& file, ofstream& file2) {
 
 inline void showIstoric(string data, ifstream& file) {
 	string line;
-	char c;
+	system("cls");
+	//char c;
 	bool exit = false;
 	bool check = false;
 	while (getline(file, line)) {
 		if (line == data) {
 			check = false;
 			line.clear();
-			while (file.get(c)) {
-				line.push_back(c);
-				if (c == '-') {
+			while (getline(file,line)) {
+
+				if (line == "--------------------------") {
 					exit = true;
 					break;
-				}if (c == '\n') {
-					cout << line;
-					line.clear();
 				}
+				cout << line<<endl;							
 			}
 		}
 		else {
@@ -1726,3 +1725,17 @@ inline void showDates(ifstream& file) {
 //	}
 //
 //}
+
+inline string takeProgresFromFile(int rand) {
+	ifstream file;
+	string line;
+	int k = 0;
+	file.open("Progres real.txt");
+	while (getline(file, line)) {
+		if (k == rand) {
+			return line;
+		}
+		k++;
+	}
+	file.close();
+}

@@ -106,7 +106,8 @@ void Aliment::createProduct(int size) {
 
 			//Nume
 			cout << "Nume produs: ";
-			cin >> input;
+			cin.ignore();
+			getline(cin, input);
 			line = "Nume: " + input;
 			file << line;
 			clearStrings(&input, &line);

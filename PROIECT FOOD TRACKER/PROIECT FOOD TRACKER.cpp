@@ -144,7 +144,11 @@ ostream& operator<<(ostream& o, Menu menu) {
 		input = 0;
 		cout << "Ce doresti sa editezi" << endl;
 		user.displayUsers();
+		cout << "10.Inapoi" << endl;
 		cin >> input;
+		if (input == 10) {
+			break;
+		}
 		system("cls");
 		user.editUser(file2, input);
 		break;
@@ -297,10 +301,10 @@ void vizualizare_date() {
 	 User user;	
 
 	 //Declarare variabile MENU
-	static Menu men_mic_dej;
-	static Menu men_pranz;
-	static Menu men_cina;
-	static Menu men_gustari;
+	 Menu men_mic_dej;
+	 Menu men_pranz;
+	 Menu men_cina;
+	 Menu men_gustari;
 
 	string line;
 
@@ -347,7 +351,7 @@ void vizualizare_date() {
 	 //Verific daca fiserul Data.txt este gol sau daca data din el difera de data curenta si daca una din ele este adevarata atunci setez calorile reale cu cele expected
 	 //Si daca ambele sunt false atunci setez totul cum a fost de la ultima rulare a programului
 	 if (meal.checkData() || check_empty_file(file)) {	 
-		 setCaloriiReal(real,mic_dejun, pranz, cina, gustari,expected);	 
+		
 		 date = currentTime();
 		 Date();	
 		 file.close();
@@ -355,9 +359,14 @@ void vizualizare_date() {
 		 //Deschid fisierele istoric pentru ca pune Data in care se afla utilizatorul
 		 //Verifica daca fisierele sunt goale si daca nu transfer din fisierele temporare in fisierele istoric si dupa sterg fisierele temporare
 		 file2.open("Istoric_Mic_Dejun.txt", fstream::app);
-		 file2 << date << '\n';
+		
 		 if (!check_empty_file(file)) {
+			 file2 << date << '\n';
 			 tranferFiles(file, file2);
+			 file2 << "Progres total expected: " << expected.getConsum_cal() << endl;
+			 file2 << "Progres total real: " << takeProgresFromFile(0)<<endl;
+			 file2 << "Progres expected: " << mic_dejun.getExpected().getConsum_cal()<<endl;
+			 file2 <<"Progres real: "<< takeProgresFromFile(1)<<endl;
 			 file2 << "--------------------------" << endl;
 		 }
 		
@@ -366,9 +375,14 @@ void vizualizare_date() {
 		 file.close();
 		 file.open("Temp_PR.txt");
 		 file2.open("Istoric_Pranz.txt", fstream::app);
-		 file2 << date << '\n';
+		
 		 if (!check_empty_file(file)) {
+			 file2 << date << '\n';
 			 tranferFiles(file, file2);
+			 file2 << "Progres total expected: " << expected.getConsum_cal() << endl;
+			 file2 << "Progres total real: " << takeProgresFromFile(0)<<endl;
+			 file2 << "Progres expected: " << pranz.getExpected().getConsum_cal() << endl;
+			 file2 << "Progres real: " << takeProgresFromFile(2) << endl;
 			 file2 << "--------------------------" << endl;
 		 }
 		
@@ -376,9 +390,14 @@ void vizualizare_date() {
 		 file.close();
 		 file.open("Temp_CN.txt");
 		 file2.open("Istoric_Cina.txt", fstream::app);
-		 file2 << date << '\n';
+		
 		 if (!check_empty_file(file)) {
+			 file2 << date << '\n';
 			 tranferFiles(file, file2);
+			 file2 << "Progres total expected: " << expected.getConsum_cal() << endl;
+			 file2 << "Progres total real: " << takeProgresFromFile(0)<<endl;
+			 file2 << "Progres expected: " << cina.getExpected().getConsum_cal() << endl;
+			 file2 << "Progres real: " << takeProgresFromFile(3) << endl;
 			 file2 << "--------------------------" << endl;
 		 }
 		 file.close();
@@ -386,9 +405,14 @@ void vizualizare_date() {
 
 		 file.open("Temp_GS.txt");
 		 file2.open("Istoric_Gustari.txt", fstream::app);
-		 file2 << date << '\n';
+		
 		 if (!check_empty_file(file)) {
+			 file2 << date << '\n';
 			 tranferFiles(file, file2);
+			 file2 << "Progres total expected: " << expected.getConsum_cal() << endl;
+			 file2 << "Progres total real: " << takeProgresFromFile(0)<<endl;
+			 file2 << "Progres expected: " << gustari.getExpected().getConsum_cal() << endl;
+			 file2 << "Progres real: " << takeProgresFromFile(4) << endl;
 			 file2 << "--------------------------" << endl;
 		 }
 		 file.close();
@@ -405,7 +429,7 @@ void vizualizare_date() {
 		 file2.close();
 		 file2.open("Temp_GS.txt");
 		 file2.close();
-
+		 setCaloriiReal(real, mic_dejun, pranz, cina, gustari, expected);
 	 }
 	 else {
 		 file.close();
@@ -524,7 +548,7 @@ void vizualizare_date() {
 		 }
 		 break;
 	 case 2:
-
+		 system("cls");
 		 //Afisez alimentele recomandatate pentru fiecare Masa
 		 cout << "ALIMENTE RECOMANDATE PENTRU" << endl;
 		 cout << "1.Mic dejun" << endl;
@@ -533,16 +557,19 @@ void vizualizare_date() {
 		 cout << "4.Gustari" << endl;
 		 cin >> STATE_USER;
 		 if (STATE_USER == 1) {
-		
+			 system("cls");
 			 afisare_alimente_recomandateMD(mic_dejun, lista_meals);
 		 }
 		 else if (STATE_USER == 2) {
+			 system("cls");
 			 afisare_alimente_recomandatePR(pranz, lista_meals);
 		 }
 		 else if (STATE_USER == 3) {
+			 system("cls");
 			 afisare_alimente_recomandateCN(cina, lista_meals);
 		 }
 		 else if (STATE_USER == 4) {
+			 system("cls");
 			 afisare_alimente_recomandateGS(gustari, lista_meals);
 		 }
 		
@@ -563,9 +590,11 @@ void vizualizare_date() {
 
 		 //Daca nu exista numele duc inapoi si afisez un mesaj
 		 if (STATE_USER == 1) {	
+			 system("cls");
 			 cout << "Introduceti numele alimentului" << endl;
 			 string name;
-			 cin >> name;
+			 cin.ignore();
+			 getline(cin, name);
 			 file2.open("Temp_MD.txt", fstream::app);
 			 for (int i = 0; i < calculMicDejunNr(); i++) {
 				 if (lista_meals.at(i).getMic_dejun().getNume() == name) {
@@ -582,10 +611,10 @@ void vizualizare_date() {
 						 cin >> cantitate;
 						 produs.setAliment(lista_meals.at(i).getMic_dejun());
 						 produs.setCantitate(cantitate);
-						 produs.setPortie(0);
+						 produs.setPortie(1);
 						 men_mic_dej.adaugareProdusConsumat(produs);
 						 
-						 produs.adaugaProdusFiser(file2,mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 mic_dejun.setReal(mic_dejun.getReal().getConsum_cal() - lista_meals.at(i).getMic_dejun().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getMic_dejun().calculCaloriProdus(cantitate));
@@ -603,7 +632,7 @@ void vizualizare_date() {
 						 produs.setCantitate(cantitate);
 						 produs.setPortie(nr_porti);
 						 men_mic_dej.adaugareProdusConsumat(produs);
-						 produs.adaugaProdusFiser(file2,mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 mic_dejun.setReal(mic_dejun.getReal().getConsum_cal() - lista_meals.at(i).getMic_dejun().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getMic_dejun().calculCaloriProdus(cantitate));
@@ -616,9 +645,11 @@ void vizualizare_date() {
 			 file2.close();
 		 }
 		 if (STATE_USER == 2) {
+			 system("cls");
 			 cout << "Introduceti numele alimentului" << endl;
 			 string name;
-			 cin >> name;
+			 cin.ignore();
+			 getline(cin, name);
 			 file2.open("Temp_PR.txt", fstream::app);
 			 for (int i = 0; i < calculPranzNr(); i++) {
 				 if (lista_meals.at(i).getPranz().getNume() == name) {
@@ -636,9 +667,9 @@ void vizualizare_date() {
 						 cin >> cantitate;
 						 produs.setAliment(lista_meals.at(i).getPranz());
 						 produs.setCantitate(cantitate);
-						 produs.setPortie(0);
+						 produs.setPortie(1);
 						 men_pranz.adaugareProdusConsumat(produs);
-						 produs.adaugaProdusFiser(file2, mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 pranz.setReal(pranz.getReal().getConsum_cal() - lista_meals.at(i).getPranz().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getPranz().calculCaloriProdus(cantitate));
@@ -656,7 +687,7 @@ void vizualizare_date() {
 						 produs.setCantitate(cantitate);
 						 produs.setPortie(nr_porti);
 						 men_pranz.adaugareProdusConsumat(produs);
-						 produs.adaugaProdusFiser(file2, mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 pranz.setReal(pranz.getReal().getConsum_cal() - lista_meals.at(i).getPranz().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getPranz().calculCaloriProdus(cantitate));
@@ -669,9 +700,11 @@ void vizualizare_date() {
 			 file2.close();
 		 }
 		 if (STATE_USER == 3) {
+			 system("cls");
 			 cout << "Introduceti numele alimentului" << endl;
 			 string name;
-			 cin >> name;
+			 cin.ignore();
+			 getline(cin, name);
 			 file2.open("Temp_CN.txt", fstream::app);
 			 int k = 0;
 			 for (int i = 0; i < calculCinaNr(); i++) {
@@ -689,9 +722,9 @@ void vizualizare_date() {
 						 cin >> cantitate;
 						 produs.setAliment(lista_meals.at(i).getCina());
 						 produs.setCantitate(cantitate);
-						 produs.setPortie(0);
+						 produs.setPortie(1);
 						 men_cina.adaugareProdusConsumat(produs);
-						 produs.adaugaProdusFiser(file2, mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 cina.setReal(cina.getReal().getConsum_cal() - lista_meals.at(i).getCina().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getCina().calculCaloriProdus(cantitate));
@@ -709,7 +742,7 @@ void vizualizare_date() {
 						 produs.setCantitate(cantitate);
 						 produs.setPortie(nr_porti);
 						 men_cina.adaugareProdusConsumat(produs);
-						 produs.adaugaProdusFiser(file2, mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 cina.setReal(cina.getReal().getConsum_cal() - lista_meals.at(i).getCina().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getCina().calculCaloriProdus(cantitate));
@@ -722,9 +755,11 @@ void vizualizare_date() {
 			 file2.close();
 		 }
 		 if (STATE_USER == 4) {
+			 system("cls");
 			 cout << "Introduceti numele alimentului" << endl;
 			 string name;
-			 cin >> name;
+			 cin.ignore();
+			 getline(cin, name);
 			 file2.open("Temp_GS.txt", fstream::app);
 			 int k = 0;
 			 for (int i = 0; i < calculGustariNr(); i++) {
@@ -742,9 +777,9 @@ void vizualizare_date() {
 						 cin >> cantitate;
 						 produs.setAliment(lista_meals.at(i).getGustari());
 						 produs.setCantitate(cantitate);
-						 produs.setPortie(0);
+						 produs.setPortie(1);
 						 men_gustari.adaugareProdusConsumat(produs);
-						 produs.adaugaProdusFiser(file2, mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 gustari.setReal(gustari.getReal().getConsum_cal() - lista_meals.at(i).getGustari().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getGustari().calculCaloriProdus(cantitate));
@@ -762,7 +797,7 @@ void vizualizare_date() {
 						 produs.setCantitate(cantitate);
 						 produs.setPortie(nr_porti);
 						 men_gustari.adaugareProdusConsumat(produs);
-						 produs.adaugaProdusFiser(file2, mic_dejun);
+						 produs.adaugaProdusFiser(file2);
 
 						 gustari.setReal(gustari.getReal().getConsum_cal() - lista_meals.at(i).getGustari().calculCaloriProdus(cantitate));
 						 real.setConsum_Cal(real.getConsum_cal() - lista_meals.at(i).getGustari().calculCaloriProdus(cantitate));
@@ -783,31 +818,82 @@ void vizualizare_date() {
 
 		 break;
 	 case 4:
+		 
+		 system("cls");
+	 Begin:
 		 cout << "1.Data curenta" << endl;
 		 cout << "2.Alta data" << endl;
 		 cin >> STATE_USER;
 		 if (STATE_USER == 1) {
+			 system("cls");
 			 cout << "1.Mic dejun" << endl;
 			 cout << "2.Pranz" << endl;
 			 cout << "3.Cina" << endl;
 			 cout << "4.Gustari" << endl;
 			 cin >> STATE_USER;
 			 if (STATE_USER == 1) {
-				 cout<<men_mic_dej<<endl; 
+				 ifstream file;
+				 file.open("Temp_MD.txt");
+				 if (check_empty_file(file)) {
+					 cout << "NU EXISTA ALIMENTE" << endl;
+					 file.close();
+					 goto Begin;
+				 }
+				 else
+				 {
+					 file.close();
+					 cout << men_mic_dej << endl;
+				 }
+				
 				 
 			 }
 			 if (STATE_USER == 2) {
-				 cout << men_pranz<<endl;
+				 ifstream file;
+				 file.open("Temp_PR.txt");
+				 if (check_empty_file(file)) {
+
+					 cout << "NU EXISTA ALIMENTE" << endl;
+					 file.close();
+					 goto Begin;
+				 }
+				 else
+				 {
+					 file.close();
+					 cout << men_pranz << endl;
+				 }
 			 }
 			 if (STATE_USER == 3) {
-				 cout << men_cina<<endl;
+				 ifstream file;
+				 file.open("Temp_CN.txt");
+				 if (check_empty_file(file)) {
+					 file.close();
+					 cout << "NU EXISTA ALIMENTE" << endl;
+					 goto Begin;
+				 }
+				 else
+				 {
+					 file.close();
+					 cout << men_cina << endl;
+				 }
 			 }
 			 if (STATE_USER == 4) {
-				 cout << men_gustari << endl;
+				 ifstream file;
+				 file.open("Temp_GS.txt");
+				 if (check_empty_file(file)) {
+					 file.close();
+					 cout << "NU EXISTA ALIMENTE" << endl;
+					 goto Begin;
+				 }
+				 else
+				 {
+					 file.close();
+					 cout << men_gustari << endl;
+				 }
 			 }
 		 }
 		 else if (STATE_USER == 2) {
 			 string data;
+			 system("cls");
 			 cout << "1.Mic dejun" << endl;
 			 cout << "2.Pranz" << endl;
 			 cout << "3.Cina" << endl;
@@ -831,7 +917,7 @@ void vizualizare_date() {
 				 cout << "Date valabile" << endl;
 				 showDates(file);
 				 file.close();
-				 file.open("Istoric_Mic_Dejun.txt");
+				 file.open("Istoric_Pranz.txt");
 				 cout << "Scrie data din care vezi sa vezi istoricul in format DD:MM:YYYY:\n";
 				
 				 cin >> data;		
@@ -843,7 +929,7 @@ void vizualizare_date() {
 				 cout << "Date valabile" << endl;
 				 showDates(file);
 				 file.close();
-				 file.open("Istoric_Mic_Dejun.txt");
+				 file.open("Istoric_Cina.txt");
 				 cout << "Scrie data din care vezi sa vezi istoricul in format DD:MM:YYYY:\n";
 				
 				 cin >> data;								
@@ -855,7 +941,7 @@ void vizualizare_date() {
 				 cout << "Date valabile" << endl;
 				 showDates(file);
 				 file.close();
-				 file.open("Istoric_Mic_Dejun.txt");
+				 file.open("Istoric_Gustari.txt");
 				 cout << "Scrie data din care vezi sa vezi istoricul in format DD:MM:YYYY:\n";
 				 cin >> data;			 				 
 				 showIstoric(data, file);
@@ -871,6 +957,7 @@ void vizualizare_date() {
 		 MENU_STATE = EXIT;
 		 break;
 	 default:
+		 system("cls");
 		 cout << "Comanda invalida" << endl;
 		 MENU_STATE = DATA;
 		 break;

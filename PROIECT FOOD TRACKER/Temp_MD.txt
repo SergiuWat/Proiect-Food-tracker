@@ -1,5 +1,0 @@
-Nume: Lays
-Cantitate: 30
-Portie: 0
-Progres: 702
-**************

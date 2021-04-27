@@ -1,0 +1,22 @@
+Nume: Carne de pui
+Calori: 356kcal
+Grasimi: 23g
+Acizi grasi saturati: 21g
+Glucide: 2g
+Zaharuri: 5g
+Fibre: 45g
+Proteine: 20g
+Sare: 5g
+Cantitate: 100g
+*********************************************
+Nume: Carne de porc
+Calori: 345kcal
+Grasimi: 23g
+Acizi grasi saturati: 21g
+Glucide: 34g
+Zaharuri: 21g
+Fibre: 45g
+Proteine: 21g
+Sare: 3g
+Cantitate: 145g
+*********************************************
