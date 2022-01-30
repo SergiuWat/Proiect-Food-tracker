@@ -49,17 +49,7 @@ public:
 	//Display User
 	void displayUsers();
 
-	//Enum 
 	
-	enum Activitate {
-		Sedentar=1 , Usoara, Moderata, Intensa
-	};
-	enum Scop {
-		Scadere=1,Mentinere,Crestere
-	};
-	enum Metabolism {
-		Rapid,Normal,Lent
-	};
 
 	//Edit user
 	void editUser(ofstream& ,int);

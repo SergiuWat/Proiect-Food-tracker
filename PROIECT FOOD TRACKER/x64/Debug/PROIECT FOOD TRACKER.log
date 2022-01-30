@@ -1,0 +1,22 @@
+﻿  Aliment.cpp
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\Aliment.cpp(203,44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\Aliment.cpp(222,44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Meal.cpp
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\Meal.cpp(73,7): warning C4101: 'c': unreferenced local variable
+  PROIECT FOOD TRACKER.cpp
+  USER.cpp
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(828,60): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(831,60): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(835,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(838,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(841,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(844,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(851,67): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(855,67): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(859,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(862,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(865,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\USER.cpp(868,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+C:\Users\rome_\source\repos\Git hub food tracker\PROIECT FOOD TRACKER\Functions.h(1730): warning C4715: 'takeProgresFromFile': not all control paths return a value
+  PROIECT FOOD TRACKER.vcxproj -> C:\Users\rome_\source\repos\Git hub food tracker\x64\Debug\PROIECT FOOD TRACKER.exe

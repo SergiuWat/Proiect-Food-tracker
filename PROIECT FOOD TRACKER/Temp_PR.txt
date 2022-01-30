@@ -1,4 +1,0 @@
-Nume: Carne de pui
-Cantitate: 80
-Portie: 1
-**************

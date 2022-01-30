@@ -20,3 +20,14 @@ Proteine: 21g
 Sare: 3g
 Cantitate: 145g
 *********************************************
+Nume: Omleta
+Calori: 200kcal
+Grasimi: 15g
+Acizi grasi saturati: 3g
+Glucide: 1g
+Zaharuri: 0g
+Fibre: 0g
+Proteine: 30g
+Sare: 1g
+Cantitate: 300g
+*********************************************

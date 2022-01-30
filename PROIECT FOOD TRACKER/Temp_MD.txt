@@ -1,0 +1,4 @@
+Nume: Activia
+Cantitate: 100
+Portie: 1
+**************

@@ -1,0 +1,28 @@
+﻿  Aliment.cpp
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\Functions.h(44,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\Aliment.cpp(223,44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\Aliment.cpp(425,20): warning C4018: '<': signed/unsigned mismatch
+  Meal.cpp
+  Menu.cpp
+  PROIECT FOOD TRACKER.cpp
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\Functions.h(44,39): warning C4018: '<': signed/unsigned mismatch
+  Produs.cpp
+  Progres.cpp
+  USER.cpp
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\Functions.h(44,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(828,60): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(831,60): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(835,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(838,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(841,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(844,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(851,67): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(852,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(855,67): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(856,16): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(859,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(862,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(865,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\PROIECT FOOD TRACKER\USER.cpp(868,15): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  PROIECT FOOD TRACKER.vcxproj -> C:\Users\rome_\source\repos\PROIECT FOOD TRACKER\Debug\PROIECT FOOD TRACKER.exe

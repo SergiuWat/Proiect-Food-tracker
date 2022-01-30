@@ -27,7 +27,6 @@ Progres expected: 962
 Progres real: 756
 --------------------------
 30:4:2021
-28:4:2021
 Nume: Carne de pui
 Cantitate: 70
 Portie: 1
@@ -36,4 +35,18 @@ Progres total expected: 2406
 Progres total real: 2200
 Progres expected: 962
 Progres real: 756
+--------------------------
+14:6:2021
+Nume: Carne de pui
+Cantitate: 80
+Portie: 1
+**************
+Nume: Omleta
+Cantitate: 200
+Portie: 1
+**************
+Progres total expected: 2681
+Progres total real: 1652
+Progres expected: 1072
+Progres real: 208
 --------------------------

@@ -20,3 +20,25 @@ Proteine: 3g
 Sare: 4g
 Cantitate: 5g
 *********************************************
+Nume: Activia
+Calori: 324kcal
+Grasimi: 23g
+Acizi grasi saturati: 23g
+Glucide: 23g
+Zaharuri: 23g
+Fibre: 23g
+Proteine: 23g
+Sare: 23g
+Cantitate: 23g
+*********************************************
+Nume: Activia_2
+Calori: 234kcal
+Grasimi: 23g
+Acizi grasi saturati: 23g
+Glucide: 23g
+Zaharuri: 23g
+Fibre: 23g
+Proteine: 23g
+Sare: 23g
+Cantitate: 23g
+*********************************************

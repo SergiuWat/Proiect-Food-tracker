@@ -1,10 +1,10 @@
-Nume: Dragomir Sergiu-Andrei
-Varsta: 19
-Inaltime: 179
-Greutate: 68
-Scop: Mentinere
+Nume: Dinu Vlad Andrei
+Varsta: 20
+Inaltime: 180
+Greutate: 77
+Scop: Scadere
 Metabolism: Normal
-Activitate Fizica: Usoara
-Greutate Dorita: 68
+Activitate Fizica: Sedentar
+Greutate Dorita: 70
 Sex: Male
 *********************************************

@@ -883,24 +883,13 @@ inline string currentTime() {
 	ostringstream temp;
 	string date;
 	int a;
-	a = timePtr->tm_mday;
-	
-	temp << a<<':';
-	//date = timePtr->tm_mday + ":" + timePtr->tm_mon;
+	a = timePtr->tm_mday;	
+	temp << a<<':';	
 	a = timePtr->tm_mon;
 	temp << a + 1<<':';
-
 	a = timePtr->tm_year + 1900;
-	temp << a;
-	
-	date = temp.str();
-	
-	//date.push_back(to_string);
-	/*date.push_back(timePtr->tm_mon);
-	date.push_back(':');
-	date.push_back(+timePtr->tm_year + 1900);*/
-
-
+	temp << a;	
+	date = temp.str();	
 	return date;
 }
 
